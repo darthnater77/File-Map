@@ -1,6 +1,5 @@
 // Code from Visualizing Data, First Edition, Copyright 2008 Ben Fry.
 
-
 class FileItem extends SimpleMapItem {
   FolderItem parent;    
   File file;
@@ -72,7 +71,7 @@ class FileItem extends SimpleMapItem {
     centerX = (boxRight+boxLeft)/2;
     centerY = (boxBottom+boxTop)/2;
     lengthX = boxRight-boxLeft;
-    lengthY = boxTop-boxBottom;
+    lengthY = boxBottom-boxTop;
   }
 
 
@@ -91,9 +90,9 @@ class FileItem extends SimpleMapItem {
     
     if (fileType.equals(".pgn") || fileType.equals(".jpg")){
       if (img.width < lengthX && img.height < lengthY)
-        image(img, centerX, centerY, lengthX);
-      else if (lengthX > lengthY)
-        image(img, centerX, centerY, lengthX, lengthX/img.width * img.height);
+        image(img, centerX, centerY);
+      else if (lengthX < lengthY)
+        image(img, centerX, centerY, lengthX, lengthX/img.width * img.height); 
       else
         image(img, centerX, centerY, lengthY/img.height * img.width, lengthY);
     }
