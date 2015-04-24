@@ -99,6 +99,7 @@ class FileItem extends SimpleMapItem {
     
     if (fileType.equals(".txt") || fileType.equals(".tsv") || fileType.equals(".dat") || fileType.equals(".doc")){
       textAlign(CENTER, CENTER);
+      fill(0);
       if (textFits(text))
         text(text, boxLeft, boxTop, boxRight, boxBottom);
       else if (mouseInside())
@@ -107,7 +108,7 @@ class FileItem extends SimpleMapItem {
  }
      
   void drawTitle() {
-    fill(255, 200);
+    fill(255);
     
     float middleX = (boxLeft + boxRight) / 2;
     float middleY = (boxTop + boxBottom) / 2;
