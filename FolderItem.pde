@@ -117,6 +117,7 @@ class FolderItem extends FileItem implements MapModel {
   void zoomIn() {
     zoomItem = this;
     zoomBounds.target(x, y, w, h); ///width, h/height);
+  
   }
 
 

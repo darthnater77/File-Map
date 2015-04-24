@@ -92,9 +92,9 @@ class FileItem extends SimpleMapItem {
       if (img.width < lengthX && img.height < lengthY)
         image(img, centerX, centerY);
       else if (lengthX < lengthY)
-        image(img, centerX, centerY, lengthX, lengthX/img.width * img.height); 
+        image(img, centerX, centerY, lengthX/1.25, (lengthX/img.width * img.height)/1.25); 
       else
-        image(img, centerX, centerY, lengthY/img.height * img.width, lengthY);
+        image(img, centerX, centerY, (lengthY/img.height * img.width)/1.25, lengthY/1.25);
     }
     
     if (fileType.equals(".txt") || fileType.equals(".tsv") || fileType.equals(".dat") || fileType.equals(".doc")){
@@ -140,8 +140,9 @@ class FileItem extends SimpleMapItem {
     if (mouseInside()) {
       if (mouseButton == LEFT) {
         parent.zoomIn();
+        if (parent.lengthX == width && parent.lengthY == height)
+          open(file.getAbsolutePath());
         return true;
-
       } else if (mouseButton == RIGHT) {
         if (parent == zoomItem) {
           parent.zoomOut();
